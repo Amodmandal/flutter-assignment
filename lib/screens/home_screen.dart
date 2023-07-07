@@ -1,12 +1,15 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:onlinestore/constants.dart';
 import 'package:onlinestore/models/products_model.dart';
 import 'package:onlinestore/screens/all_products.dart';
 import 'package:onlinestore/widgets/feeds_widget.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '../services/apihandler.dart';
+import '../widgets/sales_widget.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -50,7 +53,33 @@ class _HomescreenState extends State<Homescreen> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 15,
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: size.height * 0.25,
+                    child: Swiper(
+                      itemCount: 3,
+                      itemBuilder: (ctx, index) {
+                        return const SaleWidget();
+                      },
+                      autoplay: true,
+                      pagination: const SwiperPagination(
+                          alignment: Alignment.bottomCenter,
+                          builder: DotSwiperPaginationBuilder(
+                              color: Colors.white, activeColor: Colors.red)),
+                      // control: const SwiperControl(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
@@ -62,8 +91,13 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllproductScreen()));
+                      Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.leftToRightWithFade,
+                    child: const AllproductScreen(),
+                  ),
+                );
                     },
                     child: const Text(
                       'View all',

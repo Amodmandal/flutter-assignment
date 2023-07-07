@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:onlinestore/models/products_model.dart';
 import 'package:onlinestore/screens/product%20_details.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class FeedsWidget extends StatelessWidget {
   const FeedsWidget({
     Key? key,
-  }) : super(key: key); 
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,13 @@ class FeedsWidget extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(8.0),
           onTap: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ProductDetails(id:productsModelProvider.id.toString())));
+            Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.leftToRightWithFade,
+                  child:  ProductDetails(
+                      id: productsModelProvider.id.toString()),
+                ));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,6 +96,5 @@ class FeedsWidget extends StatelessWidget {
         ),
       ),
     );
-  
   }
 }
