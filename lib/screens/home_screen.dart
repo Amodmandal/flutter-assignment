@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:onlinestore/constants.dart';
+import 'package:onlinestore/screens/all_products.dart';
 import 'package:onlinestore/widgets/feeds_widget.dart';
 
 class Homescreen extends StatefulWidget {
@@ -47,7 +48,7 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                   InkWell(
                     onTap: () {
-                     const  Homescreen();
+                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => AllproductScreen()));;
                     },
                     child: const Text(
                       'View all',

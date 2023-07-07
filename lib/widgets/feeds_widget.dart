@@ -43,15 +43,6 @@ class FeedsWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-
-              // Padding(
-              //   padding: const EdgeInsets.all(15.0),
-              //   child: Container(
-
-              //       width: double.infinity,
-              //       child: Image.network(
-              //           'https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png')),
-              // ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -72,11 +63,10 @@ class FeedsWidget extends StatelessWidget {
                   ),
                 ),
               ),
-
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Title",
+                  "Titledfdfgdsrbhdfdnhthrthnhrthtrhrth",
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: TextStyle(
