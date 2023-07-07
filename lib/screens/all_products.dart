@@ -14,18 +14,21 @@ class AllproductScreen extends StatelessWidget {
         title: Center(child: const Text('All Products')),
       ),
       body: SingleChildScrollView(
-        child: GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 8,
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 8.0,
-                              mainAxisSpacing: 8.0,
-                              childAspectRatio: 0.8),
-                          itemBuilder: (ctx, index) {
-                            return const FeedsWidget();
-                          }),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 8,
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 8.0,
+                                mainAxisSpacing: 8.0,
+                                childAspectRatio: 0.8),
+                            itemBuilder: (ctx, index) {
+                              return const FeedsWidget();
+                            }),
+        ),
       ),
     );
   }
