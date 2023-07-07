@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:onlinestore/constants.dart';
+import 'package:onlinestore/models/products_model.dart';
 import 'package:onlinestore/screens/all_products.dart';
 import 'package:onlinestore/services/apihandler.dart';
 import 'package:onlinestore/widgets/feeds_widget.dart';
@@ -15,10 +16,16 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  List<ProductModel> productsList = [];
   @override
   void didChangeDependencies() {
-    APIhandler.getAllproducts();
+    getProducts();
     super.didChangeDependencies();
+  }
+
+  Future<void> getProducts() async {
+    productsList = await APIhandler.getAllproducts();
+    setState(() {});
   }
 
   @override
@@ -71,19 +78,24 @@ class _HomescreenState extends State<Homescreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 8,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 8.0,
-                                mainAxisSpacing: 8.0,
-                                childAspectRatio: 0.8),
-                        itemBuilder: (ctx, index) {
-                          return const FeedsWidget();
-                        }),
+                    productsList.isEmpty
+                        ? Container()
+                        : GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 8,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 8.0,
+                                    mainAxisSpacing: 8.0,
+                                    childAspectRatio: 0.8),
+                            itemBuilder: (ctx, index) {
+                              return FeedsWidget(
+                                imageUrl: productsList[index].image!,
+                                title: productsList[index].title.toString(),
+                              );
+                            }),
                   ],
                 ),
               ),

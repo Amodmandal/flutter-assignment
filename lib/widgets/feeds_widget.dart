@@ -4,7 +4,13 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:onlinestore/screens/product%20_details.dart';
 
 class FeedsWidget extends StatelessWidget {
-  const FeedsWidget({Key? key}) : super(key: key);
+  const FeedsWidget({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+  }) : super(key: key);
+  final String imageUrl;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,8 @@ class FeedsWidget extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(8.0),
           onTap: () {
-             Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductDetails()));;
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ProductDetails()));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,17 +66,16 @@ class FeedsWidget extends StatelessWidget {
                         color: Colors.red,
                         size: 28,
                       ),
-                      imageUrl:
-                          "https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png",
+                      imageUrl: imageUrl,
                       boxFit: BoxFit.fill,
                     ),
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Titledfdfgdsrbhdfdnhthrthnhrthtrhrth",
+                  title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: TextStyle(
