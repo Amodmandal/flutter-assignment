@@ -47,9 +47,9 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Homescreen();
+                     const  Homescreen();
                     },
-                    child: Text(
+                    child: const Text(
                       'View all',
                       style: TextStyle(fontSize: 20),
                     ),

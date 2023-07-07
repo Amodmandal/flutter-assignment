@@ -1,4 +1,6 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 
 class FeedsWidget extends StatelessWidget {
   const FeedsWidget({Key? key}) : super(key: key);
@@ -24,9 +26,9 @@ class FeedsWidget extends StatelessWidget {
                   children: [
                     Flexible(
                       child: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                             text: '\$',
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: Color.fromRGBO(33, 150, 243, 1)),
                             children: <TextSpan>[
                               TextSpan(
@@ -42,28 +44,34 @@ class FeedsWidget extends StatelessWidget {
               ),
               const SizedBox(height: 5),
 
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                    
-                    width: double.infinity,
-                    child: Image.network(
-                        'https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png')),
-              ),
-              // ClipRRect(
-              //   borderRadius: BorderRadius.circular(12),
-              //   child: FancyShimmerImage(
-              //     height: size.height * 0.2,
-              //     width: double.infinity,
-              //     errorWidget: const Icon(
-              //       IconlyBold.danger,
-              //       color: Colors.red,
-              //       size: 28,
-              //     ),
-              //     imageUrl: "https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png",
-              //     boxFit: BoxFit.fill,
-              //   ),
+              // Padding(
+              //   padding: const EdgeInsets.all(15.0),
+              //   child: Container(
+
+              //       width: double.infinity,
+              //       child: Image.network(
+              //           'https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png')),
               // ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: FancyShimmerImage(
+                      height: size.height * 0.2,
+                      width: double.infinity,
+                      errorWidget: const Icon(
+                        IconlyBold.danger,
+                        color: Colors.red,
+                        size: 28,
+                      ),
+                      imageUrl:
+                          "https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png",
+                      boxFit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ),
 
               const Padding(
                 padding: EdgeInsets.all(8.0),
@@ -78,7 +86,6 @@ class FeedsWidget extends StatelessWidget {
                   ),
                 ),
               ),
-             
             ],
           ),
         ),
