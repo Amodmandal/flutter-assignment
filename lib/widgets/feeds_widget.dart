@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 class FeedsWidget extends StatelessWidget {
   const FeedsWidget({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); 
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class FeedsWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
           onTap: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ProductDetails()));
+                MaterialPageRoute(builder: (context) => ProductDetails(id:productsModelProvider.id.toString())));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,5 +90,6 @@ class FeedsWidget extends StatelessWidget {
         ),
       ),
     );
+  
   }
 }
