@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlinestore/constants.dart';
+import 'package:provider/provider.dart';
 
 import '../models/products_model.dart';
 import '../services/apihandler.dart';
@@ -36,7 +37,8 @@ class _AllproductScreenState extends State<AllproductScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: productsList.isEmpty
-              ? Container()
+              ? const Center(
+                  heightFactor: 17, child: CircularProgressIndicator())
               : GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -47,11 +49,9 @@ class _AllproductScreenState extends State<AllproductScreen> {
                       mainAxisSpacing: 8.0,
                       childAspectRatio: 0.8),
                   itemBuilder: (ctx, index) {
-                    return FeedsWidget(
-                     
-                      imageUrl: productsList[index].image!,
-                      title: productsList[index].title.toString(),
-                    );
+                    return ChangeNotifierProvider.value(
+                      value: productsList[index],
+                      child: FeedsWidget());
                   }),
         ),
       ),
