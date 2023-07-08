@@ -1,6 +1,7 @@
 # onlinestore
 
-A new Flutter project.
+A ecommerce  project where user can fetch data from api and  provider.
+
 
 ## Getting Started
 
