@@ -7,5 +7,6 @@ A flutter app with multi-page that allows users to browse and search for product
 
 ![Screenshot_1688810253](https://github.com/Amodmandal/flutter-assignment/assets/80683174/62dccd7b-9429-4e77-941a-086fbb616375)
 
-App link :-https://drive.google.com/drive/folders/1anCmSYu-hHYEY-EjjijQpTvvpqF8AC4v?usp=drive_link
-Git repo :-
+
+App link :-https://drive.google.com/drive/folders/1anCmSYu-hHYEY-EjjijQpTvvpqF8AC4v?usp=drive_link  
+Git repo :-https://github.com/Amodmandal/flutter-assignment.git
